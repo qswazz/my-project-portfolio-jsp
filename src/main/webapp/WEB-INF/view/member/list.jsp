@@ -13,6 +13,12 @@
 	<h3>List View</h3>
 
 	<h2>안녕하세요. ${vo.name }님 !!</h2>	
+	<%-- <%
+		session = request.getSession();
+		out.println(session.getAttribute("id"));
+	%> --%>
+
+	<h2>안녕하세요. ${vo.name }</h2>
 
 	<table border=1>
 		<tr>
@@ -38,6 +44,7 @@
 
 	<form action="" method="post">
 		<input type="button" value="회원정보 수정" onclick="location.href='/member/detail.do'"/>
+		<!-- <input type="button" value="로그인" onclick="location.href='/member/login.do'"/> -->
 		<input type="button" value="back" onclick="history.go(-1)"/>
 	</form>
 </body>

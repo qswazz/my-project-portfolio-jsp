@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.servlet.RequestDispatcher;
 import javax.sql.DataSource;
 
 import com.webShop.member.vo.MemberVO;

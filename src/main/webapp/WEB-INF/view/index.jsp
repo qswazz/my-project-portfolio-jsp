@@ -34,5 +34,6 @@
 		<a href="/member/list.do">list</a>
 	</div>
 	<hr>
+	
 </body>
 </html>

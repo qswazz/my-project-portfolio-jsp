@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.webShop.member.dao.MemberDAO;
 import com.webShop.member.service.JoinActionService;
 import com.webShop.member.service.LoginActionService;
-import com.webShop.member.vo.MemberVO;
 import com.webShop.service.IService;
 
 
