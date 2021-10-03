@@ -8,8 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
+import javax.naming.*;
 import javax.sql.DataSource;
 
 import com.webShop.member.vo.MemberVO;
@@ -71,8 +70,9 @@ public class MemberDAO
 				String email = rs.getString("email");
 				String phone = rs.getString("phone");
 				Date joinDate = rs.getDate("joinDate");
+				String admin = rs.getString("admin");
 				
-				MemberVO vo = new MemberVO(id, pwd, name, email, phone, joinDate);
+				MemberVO vo = new MemberVO(id, pwd, name, email, phone, joinDate, admin);
 				
 				list.add(vo);
 			}
@@ -114,6 +114,7 @@ public class MemberDAO
 				String email_ = rs.getString("email");
 				String phone_ = rs.getString("phone");
 				Date joinDate_ = rs.getDate("joinDate");
+				String admin_ = rs.getString("admin");
 
 //				vo.setId(id_);
 //				vo.setPwd(pwd_);
@@ -122,7 +123,7 @@ public class MemberDAO
 //				vo.setPhone(phone_);
 //				vo.setJoinDate(joinDate_);
 				
-				vo= new MemberVO(id_, pwd_, name_, email_, phone_, joinDate_);
+				vo= new MemberVO(id_, pwd_, name_, email_, phone_, joinDate_, admin_);
 			}
 		}
 		catch (Exception e)

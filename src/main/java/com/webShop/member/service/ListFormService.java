@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webShop.member.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
-import com.webShop.service.IService;
+import com.webShop.service.IService2;
 
-public class ListFormService implements IService
+public class ListFormService implements IService2
 {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException
@@ -24,12 +24,8 @@ public class ListFormService implements IService
 		
 		request.setAttribute("list", list);
 
-		String url = "list.jsp";
+		String nextPage = "/WEB-INF/view/member/list.jsp";
 		
-		return url;
-		
-//		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-//		
-//		dispatcher.forward(request, response);
+		return nextPage;
 	}
 }

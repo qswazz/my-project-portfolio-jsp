@@ -10,6 +10,7 @@ public class MemberVO
 	private String email;
 	private String phone;
 	private Date joinDate;
+	private String admin;
 
 	
 	public MemberVO()
@@ -18,7 +19,7 @@ public class MemberVO
 	}
 	
 	
-	public MemberVO(String id, String pwd, String name, String email, String phone, Date joinDate)
+	public MemberVO(String id, String pwd, String name, String email, String phone, Date joinDate, String admin)
 	{
 		super();
 		this.id = id;
@@ -27,6 +28,7 @@ public class MemberVO
 		this.email = email;
 		this.phone = phone;
 		this.joinDate = joinDate;
+		this.admin = admin;
 	}
 	
 	
@@ -89,13 +91,15 @@ public class MemberVO
 	{
 		this.joinDate = joinDate;
 	}
-	
-	
-	@Override
-	public String toString()
+
+	public String getAdmin()
 	{
-		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", joinDate=" + joinDate
-				+ "]";
+		return admin;
+	}
+	
+	public void setAdmin(String admin)
+	{
+		this.admin = admin;
 	}
 	
 }

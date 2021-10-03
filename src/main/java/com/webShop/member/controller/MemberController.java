@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.webShop.member.service.JoinActionService;
+import com.webShop.member.service.ListFormService;
 import com.webShop.member.service.LoginActionService;
-import com.webShop.service.IService;
+import com.webShop.service.IService2;
 
 
 @WebServlet("/member/*")
@@ -23,12 +24,13 @@ public class MemberController extends HttpServlet
 	private static final long serialVersionUID = 1L;
 	
 	
-    public MemberController()
-    {
-    	
-    }
-
-
+	private enum CommandType
+	{
+		REDIRECT
+		, FORWARD
+	}
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -58,9 +60,14 @@ public class MemberController extends HttpServlet
 	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		String nextPage = null;
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		CommandType commandType = null;
 		String command = request.getPathInfo();
-		//System.out.println("요청 command :" + command);
+		String nextPage = null;
 		
 		
 		// 로그인
@@ -70,77 +77,110 @@ public class MemberController extends HttpServlet
 
 			if(session.getAttribute("id") == null)
 			{
+				commandType = CommandType.FORWARD;
 				nextPage = "/WEB-INF/view/member/login.jsp";
 			}
 			else
 			{
-				nextPage = "/WEB-INF/view/index.jsp";
+				commandType = CommandType.REDIRECT;
+				nextPage = "/index.do";
 			}
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
-			
-			dispatcher.forward(request, response);
 		}
 		else if(command.equals("/loginAction.do"))
 		{
-			IService service = new LoginActionService();
+			commandType = CommandType.REDIRECT;
 			
+			IService2 service = new LoginActionService();
+
 			nextPage = service.execute(request, response);
 			
-			response.sendRedirect(nextPage);
+			boolean isErr = (boolean) request.getAttribute("err");
+			
+			if(isErr == true)
+			{
+				out.println("<script>alert('정보가 존재하지 않습니다.'); ");
+				out.println("location.href='" + nextPage + "';</script>");
+				out.flush();
+				
+				return;
+			}
+		}
+		else if(command.equals("/logout.do"))
+		{
+			commandType = CommandType.REDIRECT;
+			
+			HttpSession session = request.getSession();
+
+			System.out.println("path : " + request.getRequestURI());
+			session.invalidate();
+			
+			nextPage = "/index.do";
 		}
 		
+		
 		// 회원가입
-		else if(command.equals("/join.do"))
+		else if(command.equals("/joinForm.do"))
 		{
-			System.out.println("join 호출");
-			nextPage = "/WEB-INF/view/member/join.jsp";
+			HttpSession session = request.getSession();
+			
+			if(session.getAttribute("id") == null)
+			{
+				commandType = CommandType.FORWARD;
+				nextPage = "/WEB-INF/view/member/join.jsp";				
+			}
+			else
+			{
+				commandType = CommandType.REDIRECT;
+				nextPage = "/index.do";
+			}
+		}
+		else if(command.equals("/joinAction.do"))
+		{
+			commandType = CommandType.REDIRECT;
+			//commandType = "redirect";
+			
+			IService2 service = new JoinActionService();
 
+			nextPage = service.execute(request, response);
+			
+			out.println("<script>alert('등록 완료되었습니다.'); ");
+			out.println("location.href='" + nextPage + "';</script>");
+			out.flush();
+			
+			return;
+		}
+
+		
+		// 리스트
+		else if(command.equals("/listForm.do"))
+		{
+			commandType = CommandType.FORWARD;
+			
+			IService2 service = new ListFormService();
+			
+			nextPage = service.execute(request, response);
+		}
+				
+		
+		
+		
+		
+		
+
+		// 페이지 이동
+		if(commandType.equals(CommandType.REDIRECT))
+		{
+			response.sendRedirect(nextPage);
+		}
+		else if(commandType.equals(CommandType.FORWARD))
+		{
 			RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 			
 			dispatcher.forward(request, response);
 		}
-		else if(command.equals("/joinAction.do"))
-		{
-			request.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=UTF-8");
-			
-			PrintWriter out = response.getWriter();
-			
-			IService service = new JoinActionService();
-
-			nextPage = service.execute(request, response);
-			
-			//response.sendRedirect(nextPage);
-			
-			out.println("<script>alert('등록 완료되었습니다 !'); ");
-			out.println("location.href='" + nextPage + "';</script>");
-			
-			out.flush();
-		}
-		
-
 		
 		
 		
-//		
-//		if(command.equals("/list.do"))
-//		{
-//			System.out.println("list.do 호출");
-//			
-//			IService service = new ListFormService();
-//			
-//			service.execute(request, response);
-//		}
-//		
-//		else if(command.equals("/logout.do"))
-//		{
-//			session.invalidate();
-//			
-//			page = "/WEB-INF/view/index.jsp";
-//		}
-//		
-//		
 //		// 회원정보 수정
 //		else if(command.equals("/detail.do"))
 //		{

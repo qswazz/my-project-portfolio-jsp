@@ -12,6 +12,7 @@
 <body>
 	<%
 		String id = (String) session.getAttribute("id");
+		String admin = (String) session.getAttribute("admin");
 	%>
 	
 	<h3>Index View</h3>
@@ -31,9 +32,15 @@
 	<hr>
 	<div>
 		<h4>게시판</h4>
-		<a href="/member/list.do">list</a>
+		<a href="/member/listForm.do">list</a>
 	</div>
 	<hr>
 	
+	<c:if test="${admin.equals('1') }">
+		<div>
+			<h4>관리자 - 회원관리</h4>
+			<a href="/member/listForm.do">admin Member</a>
+		</div>
+	</c:if>
 </body>
 </html>

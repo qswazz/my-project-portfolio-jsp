@@ -10,9 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import com.webShop.member.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
-import com.webShop.service.IService;
+import com.webShop.service.IService2;
 
-public class LoginActionService implements IService
+public class LoginActionService implements IService2
 {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException
@@ -29,13 +29,17 @@ public class LoginActionService implements IService
 		
 		if(pwd.equals(userInfo.getPwd()))
 		{
-			session.setAttribute("id", userInfo.getId());
-
+			request.setAttribute("err", false);
+			
+			session.setAttribute("id", id);
+			session.setAttribute("admin", userInfo.getAdmin());
+			
 			nextPage = "/index.do";
 		}
 		else
 		{
-			nextPage = "/member/loginForm.do?err=1";
+			request.setAttribute("err", true);
+			nextPage = "/member/loginForm.do";
 		}
 		
 		return nextPage;

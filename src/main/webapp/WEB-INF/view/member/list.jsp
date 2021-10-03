@@ -10,15 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		String id = (String) session.getAttribute("id");
+	%>
+	
 	<h3>List View</h3>
 
-	<h2>안녕하세요. ${vo.name }님 !!</h2>	
-	<%-- <%
-		session = request.getSession();
-		out.println(session.getAttribute("id"));
-	%> --%>
-
-	<h2>안녕하세요. ${vo.name }</h2>
+	<c:if test="${id != null }">
+		<h4>${id }님 안녕하세요 !</h4>
+	</c:if>
 
 	<table border=1>
 		<tr>
@@ -43,9 +43,16 @@
 	</table>
 
 	<form action="" method="post">
-		<input type="button" value="회원정보 수정" onclick="location.href='/member/detail.do'"/>
+		<c:if test="${id == null }">
+			<input type="button" value="로그인" onclick="location.href='/member/loginForm.do'"/>
+		</c:if>
+		<c:if test="${id != null }">
+			<input type="button" value="회원정보 수정" onclick="location.href='/member/detailForm.do'"/>
+			<input type="button" value="로그아웃" onclick="location.href='/member/logout.do'"/>
+		</c:if>
+		
 		<!-- <input type="button" value="로그인" onclick="location.href='/member/login.do'"/> -->
-		<input type="button" value="back" onclick="history.go(-1)"/>
+		<input type="button" value="Home" onclick="history.go(-1)"/>
 	</form>
 </body>
 </html>

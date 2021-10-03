@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webShop.member.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
-import com.webShop.service.IService;
+import com.webShop.service.IService2;
 
-public class JoinActionService implements IService
+public class JoinActionService implements IService2
 {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException
@@ -29,7 +29,7 @@ public class JoinActionService implements IService
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		
-		MemberVO vo = new MemberVO(id, pwd, name, email, phone, null);
+		MemberVO vo = new MemberVO(id, pwd, name, email, phone, null, null);
 		
 		int result = dao.addMember(vo);
 		
