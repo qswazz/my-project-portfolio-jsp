@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		String id = (String) session.getAttribute("id");
+	%>
 	<h3>Board Detail View</h3>
 	
 	<table>
@@ -33,10 +36,16 @@
 			<td>내용</td>
 			<td>${item.content }</td>
 		</tr>
-		
+		<tr>
+			<c:if test="${id eq item.id }">
+				<td><input type="button" value="수정" onclick="location.href='/board?cmd=4&n=${item.num }'"/></td>
+				<td><input type="button" value="삭제" onclick="location.href='/board?cmd=6&n=${item.num }'"/></td>
+			</c:if>
+		</tr>
 		<tr>
 			<td><input type="button" value="목록으로" onclick="location.href='/board?cmd=0'"/></td>
 		</tr>
 	</table>
+	
 </body>
 </html>

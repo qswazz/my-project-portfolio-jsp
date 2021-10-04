@@ -16,18 +16,17 @@
 		Date date = new Date();
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy/MM/dd");
 		String nowDate = simpleDate.format(date);
-	
-		session = request.getSession();
-	
+		
 		String id = (String) session.getAttribute("id");
 	%>
-	<h3>Board Write View</h3>
 	
-	<form action="/board?cmd=3" method="post">
+	<h3>Board Update View</h3>
+	
+	<form action="/board?cmd=5&n=${item.num }" method="post">
 		<table>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title"/></td>
+				<td><input type="text" name="title" value="${item.title }" readonly/></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -35,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="content" rows="10" cols="100">내용입력하세요.</textarea></td>
+				<td><textarea name="content" rows="10" cols="100">${item.content }</textarea></td>
 			</tr>
 			
 			<tr>

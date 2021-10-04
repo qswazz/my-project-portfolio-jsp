@@ -137,27 +137,82 @@ public class BoardDAO
 		
 		try
 		{
-			String sql = "INSERT INTO t_board(NUM, ID, TITLE, CONTENT, READCOUNT, WRITEDATE, MODIFYDATE) VALUES (BOARD_SEQ.nextval, ?, ?, ?, 0, ?, ?)";
+			String sql = "INSERT INTO t_board(NUM, ID, TITLE, CONTENT, READCOUNT, WRITEDATE, MODIFYDATE) VALUES (BOARD_SEQ.nextval, ?, ?, ?, 0, sysdate, sysdate)";
 
 			String id_ = vo.getId();
 			String title_ = vo.getTitle();
 			String content_ = vo.getContent();
-			String writeDate_ = vo.getWriteDate();
-			String modifyDate_ = vo.getModifyDate();
 			
 			con = dataFactory.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id_);
 			pstmt.setString(2, title_);
 			pstmt.setString(3, content_);
-			pstmt.setString(4, writeDate_);
-			pstmt.setString(5, modifyDate_);
 			
 			result = pstmt.executeUpdate();
 		}
 		catch (Exception e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
+		}
+		finally
+		{
+			pstmt.close();
+			con.close();
+		}
+		
+		return result;
+	}
+	
+	
+	public int updateBoard(BoardVO vo) throws SQLException
+	{
+		int result = -1;
+		
+		try
+		{
+			String sql = "UPDATE t_board SET CONTENT = ?, MODIFYDATE = sysdate WHERE NUM = ?";
+
+			String content_ = vo.getContent();
+			int num_ = vo.getNum();
+			
+			con = dataFactory.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, content_);
+			pstmt.setInt(2, num_);
+			
+			result = pstmt.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			pstmt.close();
+			con.close();
+		}
+		
+		return result;
+	}
+	
+	
+	public int deleteBoard(int num) throws SQLException
+	{
+		int result = -1;
+		
+		try
+		{
+			String sql = "DELETE FROM t_board WHERE NUM = ?";
+			
+			con = dataFactory.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			result = pstmt.executeUpdate();
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 		finally
