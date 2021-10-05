@@ -23,6 +23,8 @@ public class BoardDetailService implements IService
 		
 		BoardDAO dao = BoardDAO.getInstance();
 		
+		int readCount = dao.increaseReadCount(num);
+		
 		BoardVO boardDetail = dao.getBoard(num);
 
 		if(boardDetail == null)

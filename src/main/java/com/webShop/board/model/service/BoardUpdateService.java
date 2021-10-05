@@ -21,9 +21,9 @@ public class BoardUpdateService implements IService
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		String url = "/board?cmd=0";
-
 		int num = Integer.parseInt(request.getParameter("n"));
+
+		String url = "/board?cmd=1&n=" + num;
 		
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");

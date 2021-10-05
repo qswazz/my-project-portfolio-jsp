@@ -33,6 +33,10 @@
 			<td>${item.modifyDate }</td>
 		</tr>
 		<tr>
+			<td>조회수</td>
+			<td>${item.readCount }</td>
+		</tr>
+		<tr>
 			<td>내용</td>
 			<td>${item.content }</td>
 		</tr>

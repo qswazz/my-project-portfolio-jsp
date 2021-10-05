@@ -54,7 +54,7 @@ public class BoardDAO
 		
 		try
 		{
-			String sql = "SELECT * FROM t_board";
+			String sql = "SELECT * FROM t_board ORDER BY NUM";
 			
 			con = dataFactory.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -88,6 +88,35 @@ public class BoardDAO
 		
 		return list;
 	}
+	
+	
+	
+	public int increaseReadCount(int num) throws SQLException
+	{
+		int result = 0;
+		
+		try
+		{
+			String sql = "UPDATE t_board SET READCOUNT = READCOUNT + 1 WHERE NUM = ?";
+
+			con = dataFactory.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			pstmt.close();
+			con.close();
+		}
+		
+		return result;
+	}
+	
 	
 	
 	public BoardVO getBoard(int num) throws SQLException
