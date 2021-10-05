@@ -17,7 +17,7 @@
 	<h3>List View</h3>
 
 	<c:if test="${id != null }">
-		<h4>${id }님 안녕하세요 !</h4>
+		<h4>${id } 관리자님 안녕하세요 !</h4>
 	</c:if>
 
 	<table border=1>
@@ -43,13 +43,13 @@
 	</table>
 
 	<form action="" method="post">
-		<c:if test="${id == null }">
+		<%-- <c:if test="${id == null }">
 			<input type="button" value="로그인" onclick="location.href='/member/loginForm.do'"/>
-		</c:if>
-		<c:if test="${id != null }">
+		</c:if> --%>
+		<%-- <c:if test="${id != null }">
 			<input type="button" value="회원정보 수정" onclick="location.href='/member/detailForm.do'"/>
 			<input type="button" value="로그아웃" onclick="location.href='/member/logout.do'"/>
-		</c:if>
+		</c:if> --%>
 		
 		<!-- <input type="button" value="로그인" onclick="location.href='/member/login.do'"/> -->
 		<input type="button" value="Home" onclick="history.go(-1)"/>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.webShop.member.dao.MemberDAO;
+import com.webShop.member.model.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
 
 @WebServlet("/regMember")
@@ -62,7 +62,7 @@ public class MemberServlet extends HttpServlet
 			vo.setPwd(_pwd);
 			vo.setName(_name);
 			vo.setEmail(_email);
-		    dao.addMember(vo);
+		    dao.insertMember(vo);
 	    }
 		
 		List list=dao.getMemberList();

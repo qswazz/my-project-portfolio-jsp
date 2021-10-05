@@ -1,4 +1,4 @@
-package com.webShop.member.dao;
+package com.webShop.member.model.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -142,13 +142,13 @@ public class MemberDAO
 	
 	
 	
-	public int addMember(MemberVO vo) throws SQLException
+	public int insertMember(MemberVO vo) throws SQLException
 	{
 		int result = -1;
 		
 		try
 		{
-			String sql = "INSERT INTO t_member(id, pwd, name, email, phone) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO t_member(id, pwd, name, email, phone, joinDate, admin) VALUES (?, ?, ?, ?, ?, sysdate, ?)";
 			
 			con = dataFactory.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -157,6 +157,7 @@ public class MemberDAO
 			pstmt.setString(3, vo.getName());
 			pstmt.setString(4, vo.getEmail());
 			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(6, vo.getAdmin());
 			
 			result = pstmt.executeUpdate();
 		}

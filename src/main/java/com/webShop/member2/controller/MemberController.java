@@ -12,10 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.webShop.member.service.JoinActionService;
-import com.webShop.member.service.ListFormService;
-import com.webShop.member.service.LoginActionService;
-import com.webShop.service.IService2;
+import com.webShop.common.service.IService;
+import com.webShop.member2.service.JoinActionService;
+import com.webShop.member2.service.LoginActionService;
 
 
 @WebServlet("/member2/*")
@@ -90,7 +89,7 @@ public class MemberController extends HttpServlet
 		{
 			commandType = CommandType.REDIRECT;
 			
-			IService2 service = new LoginActionService();
+			IService service = new LoginActionService();
 
 			nextPage = service.execute(request, response);
 			
@@ -139,7 +138,7 @@ public class MemberController extends HttpServlet
 			commandType = CommandType.REDIRECT;
 			//commandType = "redirect";
 			
-			IService2 service = new JoinActionService();
+			IService service = new JoinActionService();
 
 			nextPage = service.execute(request, response);
 			
@@ -156,9 +155,9 @@ public class MemberController extends HttpServlet
 		{
 			commandType = CommandType.FORWARD;
 			
-			IService2 service = new ListFormService();
+			//IService2 service = new ListFormService();
 			
-			nextPage = service.execute(request, response);
+			//nextPage = service.execute(request, response);
 		}
 				
 		

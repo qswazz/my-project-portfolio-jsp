@@ -1,4 +1,4 @@
-package com.webShop.controller;
+package com.webShop.common.controller;
 
 import java.io.IOException;
 
@@ -8,30 +8,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-
-@WebServlet("/index.do")
+@WebServlet("/index")
 public class IndexController extends HttpServlet
-{
+{	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		doHandle(request, response);
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		doHandle(request, response);
-	}
-	
-	
-	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/index.jsp");
 		
 		dispatcher.forward(request, response);
 	}
-
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		request.setCharacterEncoding("UTF-8");
+		
+		doGet(request, response);
+	}
+	
+	
 }

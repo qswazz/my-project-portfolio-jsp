@@ -21,25 +21,25 @@
 		<h4>회원 관리</h4>
 		
 		<c:if test="${id == null }">
-			<a href="/member/loginForm.do">login</a>
+			<a href="/member?cmd=0">login</a>
 		</c:if>
 		
 		<c:if test="${id != null }">
 			<p>${id }님 안녕하세요!</p>
-			<a href="/member/logout.do">logout</a>
+			<a href="/member?cmd=2">logout</a>
 		</c:if>
 	</div>
 	<hr>
 	<div>
 		<h4>게시판</h4>
-		<a href="/member/listForm.do">list</a>
+		<a href="/board?cmd=0">list</a>
 	</div>
 	<hr>
 	
 	<c:if test="${admin.equals('1') }">
 		<div>
 			<h4>관리자 - 회원관리</h4>
-			<a href="/member/listForm.do">admin Member</a>
+			<a href="/member?cmd=5">member list</a>
 		</div>
 	</c:if>
 </body>

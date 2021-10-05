@@ -9,7 +9,7 @@
 <body>
 	<h3>Join View</h3>
 	
-	<form action="/member/joinAction.do" method="post">
+	<form action="/member?cmd=4" method="post">
 		<table>
 			<tr>
 				<td>아이디</td>

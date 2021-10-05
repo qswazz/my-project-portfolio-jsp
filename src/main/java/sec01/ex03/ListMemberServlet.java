@@ -1,7 +1,6 @@
 package sec01.ex03;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.webShop.member.dao.MemberDAO;
+import com.webShop.member.model.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
 
 @WebServlet("/ListMember")

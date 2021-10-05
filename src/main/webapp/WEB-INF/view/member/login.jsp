@@ -13,7 +13,7 @@
 <body>
 	<h3>Login View</h3>
 	
-	<form action="/member/loginAction.do" method="post">
+	<form action="/member?cmd=1" method="post">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -25,8 +25,8 @@
 			</tr>
 			<tr>
 				<td><input type="submit" value="Login" name="login"/></td>
-				<td><input type="button" value="가입하기" onclick="location.href='/member/joinForm.do'"/></td>
-				<td><input type="button" value="Home" onclick="location.href='/index.do'"/></td>
+				<td><input type="button" value="가입하기" onclick="location.href='/member?cmd=3'"/></td>
+				<td><input type="button" value="Home" onclick="location.href='/index'"/></td>
 			</tr>
 		</table>
 	</form>

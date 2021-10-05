@@ -1,4 +1,4 @@
-package com.webShop.member2.service;
+package com.webShop.member.model.service;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,36 +12,35 @@ import com.webShop.common.service.IService;
 import com.webShop.member.model.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
 
-public class LoginActionService implements IService
+public class LoginService implements IService
 {
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		HttpSession session = request.getSession();
+		String url = null;
 		
-		String nextPage = null;
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
 		MemberDAO dao = MemberDAO.getInstance();
 		
-		MemberVO userInfo = dao.getMember(id);
+		MemberVO vo = dao.getMember(id);
 		
-		if(pwd.equals(userInfo.getPwd()))
+		if(pwd.equals(vo.getPwd()))
 		{
-			request.setAttribute("err", false);
+			HttpSession session = request.getSession();
 			
 			session.setAttribute("id", id);
-			session.setAttribute("admin", userInfo.getAdmin());
+			session.setAttribute("admin", vo.getAdmin());
 			
-			nextPage = "/index.do";
+			url = "/index";
 		}
 		else
 		{
-			request.setAttribute("err", true);
-			nextPage = "/member/loginForm.do";
+			url = "/member?cmd=0";
 		}
 		
-		return nextPage;
+		return url;
 	}
+
 }
