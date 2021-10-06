@@ -34,6 +34,7 @@
 		</table>
 		
 		<input type="button" value="글쓰기" onclick="location.href='/board?cmd=2'"/>
+		<input type="button" value="HOME" onclick="location.href='/index'"/>
 	</form>
 </body>
 </html>

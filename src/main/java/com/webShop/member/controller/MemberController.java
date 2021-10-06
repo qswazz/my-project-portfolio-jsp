@@ -55,6 +55,10 @@ public class MemberController extends HttpServlet
 				command = "listForm";
 				type = CommandType.FORWARD;
 				break;
+			case "6":
+				command = "updateUserType";
+				type = CommandType.REDIRECT;
+				break;
 			default:
 				break;
 		}

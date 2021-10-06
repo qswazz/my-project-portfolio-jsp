@@ -28,6 +28,7 @@
 			<th>이메일</th>
 			<th>전화번호</th>
 			<th>가입날짜</th>
+			<th colspan="2">회원종류</th>
 		</tr>
 		
 		<c:forEach var="i" items="${list }">
@@ -38,6 +39,27 @@
 				<td>${i.email }</td>
 				<td>${i.phone }</td>
 				<td>${i.joinDate }</td>
+				<td>
+					<c:choose>
+						<c:when test="${i.admin == 1 }">
+							관리자
+						</c:when>
+						<c:when test="${i.admin == 2 }">
+							일반 회원
+						</c:when>
+					</c:choose>
+					
+				</td>
+				<td>
+					<c:choose>
+						<c:when test="${i.admin == 1 }">
+							<a href="/member?cmd=6&id=${i.id }">일반회원으로 변경</a>
+						</c:when>
+						<c:when test="${i.admin == 2 }">
+							<a href="/member?cmd=6&id=${i.id }">관리자로 변경</a>
+						</c:when>
+					</c:choose>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -52,7 +74,7 @@
 		</c:if> --%>
 		
 		<!-- <input type="button" value="로그인" onclick="location.href='/member/login.do'"/> -->
-		<input type="button" value="Home" onclick="history.go(-1)"/>
+		<input type="button" value="Home" onclick="location.href='/index'"/>
 	</form>
 </body>
 </html>

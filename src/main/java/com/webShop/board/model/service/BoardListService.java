@@ -18,9 +18,6 @@ public class BoardListService implements IService
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		HttpSession session = request.getSession();
-		session.setAttribute("id", "tester");
-		
 		String url = "/WEB-INF/view/board/boardList.jsp";
 		
 		BoardDAO dao = BoardDAO.getInstance();

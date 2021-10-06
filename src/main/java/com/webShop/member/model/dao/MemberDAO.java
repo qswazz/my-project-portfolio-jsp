@@ -244,4 +244,47 @@ public class MemberDAO
 		return result;
 	}
 	
+	
+	
+	public int updateUserType(MemberVO vo) throws SQLException
+	{
+		int result = -1;
+		
+		try
+		{
+			String sql = null;
+			
+			String admin = vo.getAdmin();
+			
+			// 0: admin
+			// 1: 관리자
+			// 2: 일반회원
+			if(admin.equals("1"))
+			{
+				sql = "UPDATE t_member SET ADMIN = 2 WHERE ID = ?";
+			}
+			else if(admin.equals("2"))
+			{
+				sql = "UPDATE t_member SET ADMIN = 1 WHERE ID = ?";
+			}
+			
+			con = dataFactory.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			
+			result = pstmt.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			pstmt.close();
+			con.close();
+		}
+		
+		return result;
+	}
+	
 }

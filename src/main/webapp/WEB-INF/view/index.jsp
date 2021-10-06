@@ -36,7 +36,7 @@
 	</div>
 	<hr>
 	
-	<c:if test="${admin.equals('1') }">
+	<c:if test="${admin.equals('0') }">
 		<div>
 			<h4>관리자 - 회원관리</h4>
 			<a href="/member?cmd=5">member list</a>

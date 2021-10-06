@@ -14,6 +14,7 @@ import com.webShop.member.model.service.ListFormService;
 import com.webShop.member.model.service.LoginFormService;
 import com.webShop.member.model.service.LoginService;
 import com.webShop.member.model.service.LogoutService;
+import com.webShop.member.model.service.UpdateUserTypeService;
 
 public class ServiceFactory
 {
@@ -95,6 +96,10 @@ public class ServiceFactory
 		else if(command.equals("listForm"))
 		{
 			action = new ListFormService();
+		}
+		else if(command.equals("updateUserType"))
+		{
+			action = new UpdateUserTypeService();
 		}
 		
 		

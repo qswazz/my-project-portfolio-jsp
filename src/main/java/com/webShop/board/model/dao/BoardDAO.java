@@ -54,7 +54,7 @@ public class BoardDAO
 		
 		try
 		{
-			String sql = "SELECT * FROM t_board ORDER BY NUM";
+			String sql = "SELECT * FROM t_board ORDER BY WRITEDATE DESC, NUM DESC";
 			
 			con = dataFactory.getConnection();
 			pstmt = con.prepareStatement(sql);
