@@ -20,6 +20,10 @@
 				<td><input type="password" name="pwd"/></td>
 			</tr>
 			<tr>
+				<td>비밀번호 확인</td>
+				<td><input type="password" name="pwd2"/></td>
+			</tr>
+			<tr>
 				<td>이름</td>
 				<td><input type="text" name="name"/></td>
 			</tr>
