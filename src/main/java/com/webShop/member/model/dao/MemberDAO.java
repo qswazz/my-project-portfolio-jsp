@@ -56,7 +56,7 @@ public class MemberDAO
 		
 		try
 		{
-			String sql = "SELECT * FROM t_member";
+			String sql = "SELECT * FROM t_member WHERE ADMIN <> 0";
 
 			con = dataFactory.getConnection();
 			pstmt = con.prepareStatement(sql);

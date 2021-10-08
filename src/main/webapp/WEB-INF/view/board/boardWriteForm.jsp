@@ -27,7 +27,7 @@
 		<table>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title"/></td>
+				<td><input type="text" name="title" id="board-title"/></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -35,14 +35,16 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="content" rows="10" cols="100">내용입력하세요.</textarea></td>
+				<td><textarea name="content" rows="10" cols="100" id="board-content">내용입력하세요.</textarea></td>
 			</tr>
 			
 			<tr>
-				<td><input type="submit" value="작성 완료"/></td>
+				<td><input type="submit" value="작성 완료" onclick="return checkBoardWrite()"/></td>
 				<td><input type="button" value="목록으로" onclick="location.href='/board?cmd=0'"/></td>
 			</tr>
 		</table>
 	</form>
+	
+	<script type="text/javascript" src="/static/js/board/checkBoardWrite.js"></script>
 </body>
 </html>
