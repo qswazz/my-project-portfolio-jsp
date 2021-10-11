@@ -51,5 +51,6 @@
 		</tr>
 	</table>
 	
+	<script type="text/javascript" src="/static/js/board/deleteBoard.js"></script>
 </body>
 </html>

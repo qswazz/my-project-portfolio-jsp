@@ -1,7 +1,11 @@
+const form = document.getElementById("login-form");
+const btnLogin = document.getElementById("btn-login");
+
+
 function checkLogin()
 {
-	const inputId = document.getElementById("login-id");
-	const inputPwd = document.getElementById("login-pwd");
+	const inputId = form.getElementById("login-id");
+	const inputPwd = form.getElementById("login-pwd");
 	
 	if(inputId.value == "")
 	{
@@ -19,3 +23,16 @@ function checkLogin()
 	
 	return true;
 }
+
+
+function clickLogin()
+{
+	console.log("???");
+	if(checkLogin() == true)
+	{
+		location.href = "/member?cmd=1";
+	}
+}
+
+
+btnLogin.addEventListener('click', clickLogin);

@@ -1,0 +1,80 @@
+@IMPORT url("reset.css");
+
+html, body
+{
+    height: 100%;
+}
+
+.main-title
+, .sub-title
+{
+    display: none;
+}
+
+#header-toolbar>ul
+{
+    display: flex;
+    justify-content: right;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+#header-toolbar>ul>li
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 80%;
+}
+
+#header-menu
+{
+    display: flex;
+}
+
+    #header-menu>ul
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header-menu>ul>li
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+#visual img
+{
+    width: 100%;
+}
+
+/* 임시 */
+#main
+{
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+}
+
+#main>.main-content
+{
+    --border: 1px solid grey;
+    width: 30%;
+    margin: 10px;
+    
+}
+
+#main>.main-content>.content-title
+{
+    font-size: 120%;
+    font-weight: bold;
+}
+
+
+
+#footer
+{
+    background: lightgray;
+    height: 100px;
+}
