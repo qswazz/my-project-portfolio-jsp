@@ -1,4 +1,4 @@
-@IMPORT url("reset.css");
+@IMPORT url("/static/css/reset.css");
 
 html, body
 {
@@ -52,52 +52,53 @@ html, body
     height: 100%;
 }
 
-#main-login
+#main-detail
 {
     margin: auto;
     width: 30%;
 }
 
-#frm-login
+    #main-detail>.title
+    {
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+#frm-detail
 {
     display: flex;
     flex-direction: column;
 }
 
-#frm-login>.inp
+#frm-detail>.lbl
 {
-    padding: 5px;
-    margin-bottom: 10px;
+    margin-top: 0.5rem;
 }
 
-#frm-login>nav
-{
-    font-size: 80%;
-}
+    #frm-detail .inp
+    {
+        width: inherit;
+        padding: 5px;
+        line-height: 1.2rem;
+    }
 
-#frm-login>nav>ul
-{
-    float: right;
-}
+    #frm-detail>div
+    {
+        display: flex;
+        flex-direction: row;
+    }
+        
+    #frm-detail>div>.inp
+    {
+        width: 100%;
+        padding: 5px;
+        margin-right: 5px;
+    }
+    
 
-#frm-login>nav>ul>li
-{
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-}
 
-#frm-login>#btn-login
+#frm-detail>#btn-detail
 {
     padding: 15px;
-}
-
-
-
-#footer
-{
-    display: flex;
-    background: lightgray;
-    justify-content: center;
-    align-items: center;
 }

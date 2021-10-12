@@ -42,7 +42,7 @@ function init()
 	var id = document.getElementById("input-id");
 	var pwd = document.getElementById("input-pwd");
 
-	btnLogin.addEventListener('click', ()=>validLogin(id, pwd));
+	btnLogin.addEventListener('submit', ()=>validLogin(id, pwd));
 }
 
 init();

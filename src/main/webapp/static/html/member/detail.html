@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Join</title>
+<link href="/static/css/member/detail.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <header id="header">
+        <h1 class="main-title">Header</h1>
+        <nav id="header-toolbar">
+            <h1 class="sub-title">Header toolbar</h1>
+            <ul>
+                <li><a href="#">로그아웃</a></li>
+                <li><a href="#">회원정보</a></li>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1 class="main-title">Main</h1>
+        <section id="main-detail">
+            <h1 class="sub-title">Detail form</h1>
+            <div class="title">
+                회원정보 수정
+            </div>
+            <br>
+            <form id="frm-detail" method="post" action="">
+                <label class="lbl">아이디</label>
+                <input class="inp" id="input-id" type="text" name="id" readonly/>
+                
+                <label class="lbl">비밀번호</label>
+                <input class="inp" id="input-pwd" type="password" name="pwd"/>
+
+                <label class="lbl">비밀번호 확인</label>
+                <input class="inp" id="input-pwd2" type="password" name="pwd2"/>
+
+                <label class="lbl">이름</label>
+                <input class="inp" id="input-name" type="text" name="name"/>
+                
+                <label class="lbl">이메일</label>
+                <input class="inp" id="input-email" type="text" name="email"/>
+                
+                <label class="lbl">전화번호</label>
+                <input class="inp" id="input-phone" type="text" name="phone" placeholder="'-' 까지 입력하세요."/>
+                
+                <br>
+                <input id="btn-detail" type="submit" name="btn-detail" value="수정하기"/>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

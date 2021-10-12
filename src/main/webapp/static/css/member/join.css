@@ -1,0 +1,104 @@
+@IMPORT url("/static/css/reset.css");
+
+html, body
+{
+    height: 100%;
+}
+
+.main-title
+, .sub-title
+{
+    display: none;
+}
+
+#header-toolbar>ul
+{
+    display: flex;
+    justify-content: right;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+#header-toolbar>ul>li
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 80%;
+}
+
+#header-menu
+{
+    display: flex;
+}
+
+    #header-menu>ul
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header-menu>ul>li
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+/* 임시 */
+#main
+{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#main-join
+{
+    margin: auto;
+    width: 30%;
+}
+
+    #main-join>.title
+    {
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+#frm-join
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#frm-join>.lbl
+{
+    margin-top: 0.5rem;
+}
+
+    #frm-join .inp
+    {
+        width: inherit;
+        padding: 5px;
+        line-height: 1.2rem;
+    }
+
+    #frm-join>div
+    {
+        display: flex;
+        flex-direction: row;
+    }
+        
+    #frm-join>div>.inp
+    {
+        width: 100%;
+        padding: 5px;
+        margin-right: 5px;
+    }
+    
+
+
+#frm-join>#btn-join
+{
+    padding: 15px;
+}

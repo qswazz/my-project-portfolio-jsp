@@ -1,0 +1,118 @@
+@IMPORT url("/static/css/reset.css");
+
+html, body
+{
+    height: 100%;
+}
+
+.main-title
+, .sub-title
+{
+    display: none;
+}
+
+#header-toolbar>ul
+{
+    display: flex;
+    justify-content: right;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+#header-toolbar>ul>li
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 80%;
+}
+
+#header-menu
+{
+    display: flex;
+}
+
+    #header-menu>ul
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header-menu>ul>li
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+/* 임시 */
+#main
+{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#main-login
+{
+    margin: auto;
+    width: 30%;
+}
+
+    #main-login>.title
+    {
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+
+#frm-login
+{
+    display: flex;
+    flex-direction: column;
+}
+
+    #frm-login>.lbl
+    {
+        margin-top: 0.5rem;
+    }
+
+    #frm-login>.inp
+    {
+        width: inherit;
+        padding: 5px;
+        line-height: 1.2rem;
+    }
+
+#frm-login>nav
+{
+    margin-top: 0.5rem;
+    font-size: 80%;
+}
+
+#frm-login>nav>ul
+{
+    float: right;
+}
+
+#frm-login>nav>ul>li
+{
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#frm-login>#btn-login
+{
+    padding: 15px;
+}
+
+
+
+#footer
+{
+    display: flex;
+    background: lightgray;
+    justify-content: center;
+    align-items: center;
+}
