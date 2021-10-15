@@ -57,21 +57,57 @@ html, body
     height: 100%;
 }
 
-#main>.main-content
-{
-    --border: 1px solid grey;
-    width: 30%;
-    margin: 10px;
+	#main-board
+	{
+		width: 100%;
+	}
+	
+    #main-board>.title
+    {
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: left;
+    }
+	
+	#main-board>.board-list
+	{
+		width: 90%;
+		height: 90%;
+		
+		margin: 2rem auto;
+	}
+
+	#main-board>.board-list th
+	{
+		background: #04B486;
+		color: #FFF;
+		font-weight: bold;
+		font-size: 1.2rem;
+		text-align: center;
+		padding: 5px;
+	}
     
-}
-
-#main>.main-content>.content-title
-{
-    font-size: 120%;
-    font-weight: bold;
-}
-
-
+    #main-board>.board-list td
+    {
+    	text-align: center;
+    	padding: 5px;
+    }
+    
+    
+    /* ÆäÀÌÀú */
+    #main-board>.board-pager>ul
+    {
+    	display: flex;
+    	flex-direction: row;
+    	justify-content: center;
+    }
+   	
+   	#main-board>.board-pager>ul>li
+    {
+    	margin-left: 5px;
+    	margin-right: 5px;
+    }
+    
 
 #footer
 {

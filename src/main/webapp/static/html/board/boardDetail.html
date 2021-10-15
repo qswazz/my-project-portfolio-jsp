@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Board List</title>
-<link href="/static/css/board/boardList.css" type="text/css" rel="stylesheet" />
+<link href="/static/css/board/boardDetail.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <header id="header">
@@ -44,40 +44,36 @@
             <div class="title">
                 공지사항 목록
             </div>
-			<table class="board-list">
+			<table class="board-detail">
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>조회수</th>
-					<th>작성날짜</th>
+					<td>번호</td>
+					<td>2</td>
 				</tr>
 				<tr>
-					<td>2</td>
-					<td><a href="#">안녕하세요?</a></td>
+					<td>제목</td>
+					<td>안녕하세요?</td>
+				</tr>
+				<tr>
+					<td>작성자</td>
 					<td>테스터</td>
+				</tr>
+				<tr>
+					<td>조회수</td>
 					<td>10</td>
+				</tr>
+				<tr>
+					<td>작성날짜</td>
 					<td>2021-01-12</td>
 				</tr>
 				<tr>
-					<td>1</td>
-					<td><a href="#">공지사항을 읽어주세요.</a></td>
-					<td>테스터</td>
-					<td>254</td>
-					<td>2021-01-01</td>
+					<td>내용</td>
+					<td>
+						<textarea rows="10" cols="50">안녕하세요? 저는 테스터입니다. 글이 잘 작성되었나요?</textarea>
+					</td>
 				</tr>
 			</table>
-			<nav class="board-pager">
-				<ul>
-					<li><a href="#">《</a></li>
-					<li><a href="#">〈</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">〉</a></li>
-					<li><a href="#">》</a></li>
-				</ul>
-			</nav>
+			
+			<input type="button" value="목록으로">
         </section>
     </main>
 
