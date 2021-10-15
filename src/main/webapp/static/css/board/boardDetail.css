@@ -64,6 +64,7 @@ html, body
 	
     #main-board>.title
     {
+    	margin: 2rem;
         font-weight: bold;
         font-size: 1.5rem;
         text-align: left;
@@ -109,6 +110,13 @@ html, body
 		border: none;
 		padding-top: 10px;
 	}
+	
+	#main-board>.list-btn
+	{
+		text-align: right;
+		padding-right: 2.5rem;
+	}
+	
 
 #footer
 {

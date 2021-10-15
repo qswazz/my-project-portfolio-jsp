@@ -42,7 +42,7 @@
         <section id="main-board">
         	<h1 class="sub-title">공지사항</h1>
             <div class="title">
-                공지사항 목록
+                글 보기
             </div>
 			<table class="board-detail">
 				<tr>
@@ -73,7 +73,11 @@
 				</tr>
 			</table>
 			
-			<input type="button" value="목록으로">
+			<div class="list-btn">
+				<input type="button" value="글쓰기">
+				<input type="button" value="목록으로" onclick="location.href='/static/html/board/boardList.html'">
+			</div>
+			
         </section>
     </main>
 
