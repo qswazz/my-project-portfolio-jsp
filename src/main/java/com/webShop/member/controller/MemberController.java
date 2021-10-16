@@ -26,11 +26,18 @@ public class MemberController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String command = null;
+		String command = request.getParameter("cmd");
 		CommandType type = null;
 		
-		switch (request.getParameter("cmd"))
+		switch (command)
 		{
+			case "loginForm":
+				type = CommandType.FORWARD;
+				break;
+			case "login":
+				type = CommandType.REDIRECT;
+				break;
+				
 			case "0":
 				command = "loginForm";
 				type = CommandType.FORWARD;

@@ -37,7 +37,7 @@ public class LoginService implements IService
 		}
 		else
 		{
-			url = "/member?cmd=0";
+			url = "/member?cmd=loginForm";
 		}
 		
 		return url;

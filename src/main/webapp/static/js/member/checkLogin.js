@@ -24,13 +24,6 @@ function validLogin(id, pwd)
 		return false;
 	}
 	
-	if(pwd.value.length < 5)
-	{
-		alert("유효하지 않은 비밀번호 형식입니다.");
-		id.focus();
-		return false;
-	}
-	
 	console.log("Success");
 	return true;
 }

@@ -30,14 +30,6 @@ function valid(e)
 		return false;
 	}
 	
-	if(pwd.value.length < 5)
-	{
-        e.preventDefault();
-		alert("유효하지 않은 비밀번호 형식입니다.");
-		id.focus();
-		return false;
-	}
-	
 	return true;
 }
 
