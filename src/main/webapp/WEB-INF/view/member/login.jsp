@@ -11,7 +11,7 @@
 <link href="/static/css/member/login.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <header id="header">
+    <!-- <header id="header">
         <h1 class="main-title">Header</h1>
         <nav id="header-toolbar">
             <h1 class="sub-title">Header toolbar</h1>
@@ -21,7 +21,9 @@
                 <li><a href="/index">Home</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <jsp:include page="/WEB-INF/view/layout/header.jsp"></jsp:include>
+    
 
     <main id="main">
         <h1 class="main-title">Main</h1>
@@ -39,7 +41,7 @@
                 <input class="inp" id="input-pwd" type="password" name="pwd" placeholder="Password를 입력하세요."/>
 
                 <nav>
-                    <a href="join.html">회원가입</a>
+                    <a href="/member?cmd=joinForm">회원가입</a>
                     <ul>
                         <li><a href="#">ID 찾기</a></li>
                         <li><a href="#">Password 찾기</a></li>

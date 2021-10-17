@@ -37,6 +37,12 @@ public class MemberController extends HttpServlet
 			case "login":
 				type = CommandType.REDIRECT;
 				break;
+			case "logout":
+				type = CommandType.REDIRECT;
+				break;
+			case "joinForm":
+				type = CommandType.FORWARD;
+				break;
 				
 			case "0":
 				command = "loginForm";
