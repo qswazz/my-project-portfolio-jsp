@@ -12,27 +12,27 @@ import com.webShop.common.service.IService;
 import com.webShop.member.model.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
 
-public class JoinService implements IService
+public class DetailService implements IService
 {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		String url = "/member?cmd=loginForm";
-		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String admin = "2";
-		
-		MemberVO vo = new MemberVO(id, pwd, name, email, phone, null, admin);
+
+		String url = "/member?cmd=detailForm&id=" + id;
 		
 		MemberDAO dao = MemberDAO.getInstance();
 
-		int result = dao.insertMember(vo);
+		MemberVO vo = new MemberVO(id, pwd, name, email, phone, null, admin);
 		
-		System.out.println("추가된 행 갯수 : " + result);
+		int result = dao.updateMember(vo);
+
+		System.out.println("변경된 행 갯수 : " + result);
 		
 		return url;
 	}

@@ -9,17 +9,7 @@
 <link href="/static/css/member/join.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <!-- <header id="header">
-        <h1 class="main-title">Header</h1>
-        <nav id="header-toolbar">
-            <h1 class="sub-title">Header toolbar</h1>
-            <ul>
-                <li><a href="login.html">로그인</a></li>
-                <li><a href="join.html">회원가입</a></li>
-                <li><a href="../index.html">Home</a></li>
-            </ul>
-        </nav>
-    </header> -->
+	<!-- Header -->
     <jsp:include page="/WEB-INF/view/layout/header.jsp"></jsp:include>
     
 
@@ -29,20 +19,21 @@
             <h1 class="sub-title">Join form</h1>
             <div class="title">회원가입</div>
             <br>
-            <form id="frm-join" method="post" action="">
-                <label class="lbl">아이디</label>
+            <form id="frm-join" method="post" action="/member?cmd=join">
+            	<p class="info">(* 표시 항목은 필수 입력값입니다.)</p>
+                <label class="lbl">아이디*</label>
                 <div>
                     <input class="inp" id="input-id" type="text" name="id" placeholder="ID를 입력하세요."/>
                     <input class="btn" id="btn-validateId" type="button" value="중복확인"/>
                 </div>
                 
-                <label class="lbl">비밀번호</label>
+                <label class="lbl">비밀번호*</label>
                 <input class="inp" id="input-pwd" type="password" name="pwd" placeholder="Password를 입력하세요."/>
 
-                <label class="lbl">비밀번호 확인</label>
+                <label class="lbl">비밀번호 확인*</label>
                 <input class="inp" id="input-pwd2" type="password" name="pwd2"/>
 
-                <label class="lbl">이름</label>
+                <label class="lbl">이름*</label>
                 <input class="inp" id="input-name" type="text" name="name"/>
                 
                 <label class="lbl">이메일</label>
@@ -56,5 +47,8 @@
             </form>
         </section>
     </main>
+	
+	<script type="text/javascript" src="/static/js/member/join.js"></script>
+	<script type="text/javascript" src="/static/js/member/validateJoin.js"></script>
 </body>
 </html>

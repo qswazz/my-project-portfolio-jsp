@@ -6,33 +6,25 @@ import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.webShop.common.service.IService;
 import com.webShop.member.model.dao.MemberDAO;
 import com.webShop.member.vo.MemberVO;
 
-public class JoinService implements IService
+public class DetailFormService implements IService
 {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException
 	{
-		String url = "/member?cmd=loginForm";
+		String url = "/WEB-INF/view/member/detail.jsp";
 		
 		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String admin = "2";
-		
-		MemberVO vo = new MemberVO(id, pwd, name, email, phone, null, admin);
-		
-		MemberDAO dao = MemberDAO.getInstance();
 
-		int result = dao.insertMember(vo);
+		MemberDAO dao = MemberDAO.getInstance();
 		
-		System.out.println("추가된 행 갯수 : " + result);
+		MemberVO vo = dao.getMember(id);
+		
+		request.setAttribute("userInfo", vo);
 		
 		return url;
 	}

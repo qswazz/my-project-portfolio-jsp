@@ -11,17 +11,7 @@
 <link href="/static/css/member/login.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <!-- <header id="header">
-        <h1 class="main-title">Header</h1>
-        <nav id="header-toolbar">
-            <h1 class="sub-title">Header toolbar</h1>
-            <ul>
-                <li><a href="/member?cmd=loginForm">로그인</a></li>
-                <li><a href="join.html">회원가입</a></li>
-                <li><a href="/index">Home</a></li>
-            </ul>
-        </nav>
-    </header> -->
+	<!-- Header -->
     <jsp:include page="/WEB-INF/view/layout/header.jsp"></jsp:include>
     
 

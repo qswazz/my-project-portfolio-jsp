@@ -1,0 +1,40 @@
+@IMPORT url("/static/css/reset.css");
+
+
+#header-toolbar>ul
+{
+    display: flex;
+    justify-content: right;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+#header-toolbar>ul>li
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 80%;
+}
+
+#header-toolbar>ul>li #btn-logout
+{
+    cursor: pointer;
+}
+
+#header-menu
+{
+    display: flex;
+}
+
+    #header-menu>ul
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header-menu>ul>li
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }

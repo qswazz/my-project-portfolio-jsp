@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Header</title>
+<link href="/static/css/layout/header.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<%
@@ -27,7 +28,7 @@
             		</c:when>
             		<c:when test="${id != null }">
             			<li>${id }님 안녕하세요!</li>
-            			<li><a href="#">회원정보</a></li>
+            			<li><a href="/member?cmd=detailForm&id=${id }">회원정보</a></li>
             			<li><a id="btn-logout">로그아웃</a></li>
             		</c:when>
             	</c:choose>

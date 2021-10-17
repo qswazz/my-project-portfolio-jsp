@@ -8,6 +8,8 @@ import com.webShop.board.model.service.BoardUpdateService;
 import com.webShop.board.model.service.BoardWriteFormService;
 import com.webShop.board.model.service.BoardWriteService;
 import com.webShop.common.service.IService;
+import com.webShop.member.model.service.DetailFormService;
+import com.webShop.member.model.service.DetailService;
 import com.webShop.member.model.service.JoinFormService;
 import com.webShop.member.model.service.JoinService;
 import com.webShop.member.model.service.ListFormService;
@@ -89,10 +91,19 @@ public class ServiceFactory
 		{
 			action = new JoinFormService();
 		}
+		else if(command.equals("detailForm"))
+		{
+			action = new DetailFormService();
+		}
 		else if(command.equals("join"))
 		{
 			action = new JoinService();
 		}
+		else if(command.equals("detail"))
+		{
+			action = new DetailService();
+		}
+		
 		else if(command.equals("listForm"))
 		{
 			action = new ListFormService();

@@ -1,8 +1,6 @@
 function validate()
 {
-	var inputId = document.getElementById("input-id");
-
-	
+	alert("작업 중 입니다.");
 }
 
 function init()

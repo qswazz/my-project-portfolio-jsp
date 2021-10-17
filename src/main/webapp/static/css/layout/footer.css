@@ -1,0 +1,10 @@
+@IMPORT url("/static/css/reset.css");
+
+#footer
+{
+    display: flex;
+    background: lightgray;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}

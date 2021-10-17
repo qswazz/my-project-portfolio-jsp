@@ -1,41 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Join</title>
+<link href="/static/css/member/detail.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<h3>Detail View</h3>
+	<%
+		String isResult = (String) request.getAttribute("showMessage");
 	
-	<form action="/member/detailAction.do" method="post">
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id" value="${vo.id}" readonly/></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="pwd"/></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" value="${vo.name }"/></td>
-			</tr>
-			<tr>
-				<td>이메일</td>
-				<td><input type="text" name="email" value="${vo.email }"/></td>
-			</tr>
-			<tr>
-				<td>전화번호</td>
-				<td><input type="text" name="phone" value="${vo.phone }"/></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="수정"/></td>
-				<td><input type="button" value="뒤로가기" onclick="history.go(-1)"/></td>
-			</tr>
-		</table>
-	</form>
+		System.out.println("showMessage : " + isResult);
+	%>
+
+	<!-- Header -->
+    <jsp:include page="/WEB-INF/view/layout/header.jsp"></jsp:include>
+
+    <main id="main">
+        <h1 class="main-title">Main</h1>
+        <section id="main-detail">
+            <h1 class="sub-title">Detail form</h1>
+            <div class="title">회원정보 수정</div>
+            <br>
+            <form id="frm-detail" method="post" action="/member?cmd=detail">
+                <label class="lbl">아이디</label>
+                <input class="inp" id="input-id" type="text" name="id" value="${userInfo.id }" readonly/>
+                
+                <label class="lbl">비밀번호</label>
+                <input class="inp" id="input-pwd" type="password" name="pwd"/>
+
+                <label class="lbl">비밀번호 확인</label>
+                <input class="inp" id="input-pwd2" type="password" name="pwd2"/>
+
+                <label class="lbl">이름</label>
+                <input class="inp" id="input-name" type="text" name="name" value="${userInfo.name }"/>
+                
+                <label class="lbl">이메일</label>
+                <input class="inp" id="input-email" type="text" name="email" value="${userInfo.email }"/>
+                
+                <label class="lbl">전화번호</label>
+                <input class="inp" id="input-phone" type="text" name="phone" value="${userInfo.phone }"/>
+                
+                <br>
+                <input id="btn-detail" type="submit" name="btn-detail" value="수정하기"/>
+            </form>
+        </section>
+    </main>
+
+    
+	<!-- Script -->
+	<script type="text/javascript" src="/static/js/member/detail.js"></script>
+	<script type="text/javascript" src="/static/js/member/logout.js"></script>
 </body>
 </html>
